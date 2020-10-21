@@ -25,7 +25,7 @@ SECRET_KEY = 'y7k&34azo8ronxft2t-nm1)-5e*otr2vy4!!^s4#11qj*q%+5n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'squirrel_tracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
