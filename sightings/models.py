@@ -18,7 +18,6 @@ class Sighting(models.Model):
     #hectare = models.CharField(
     #    max_length=5,
     #)
-
     AM = 'AM'
     PM = 'PM'
     SHIFTS = [
@@ -35,7 +34,6 @@ class Sighting(models.Model):
     date = models.DateField(
         auto_now=False,
     )
-
     #hectare_num = models.IntegerField(
     #    help_text=_('Hectare Squirrel Number'),
     #)
