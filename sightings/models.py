@@ -94,8 +94,9 @@ class Sighting(models.Model):
         help_text=_('Whether or not squirrell is foraging'),
     )
 
-    other_activities = models.BooleanField(
-        help_text=_('Whether or not squirrel is engaging in other activities'),
+    other_activities = models.TextField(
+        max_length=300,
+        blank=True,
     )
 
     kuks = models.BooleanField(

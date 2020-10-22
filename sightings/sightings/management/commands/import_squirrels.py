@@ -3,7 +3,7 @@ import csv
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from sightings.models import Squirrel
+from sightings.models import Sighting
 
 class Command(BaseCommand):
     help = 'Import squirrel csv'
@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 if item['Unique Squirrel ID'] in noduplicates:
                     continue
                 else:
-                    obj = Squirrel()
+                    obj = Sighting()
                     obj.longitude = float(item['X']),
                     obj.latitude = float(item['Y']),
                     obj.unique_squirrel_id = item['Unique Squirrel ID'],
@@ -35,7 +35,7 @@ class Command(BaseCommand):
                     obj.climbing = item['Climbing'] == 'TRUE',
                     obj.eating = item['Eating'] == 'TRUE',
                     obj.foraging = item['Foraging'] == 'TRUE',
-                    obj.other_activities = item['Other Activities'] == 'TRUE',
+                    obj.other_activities = item['Other Activities'],                 
                     obj.kuks = item['Kuks'] == 'TRUE',
                     obj.quaas = item['Quaas'] == 'TRUE',
                     obj.moans = item['Moans'] == 'TRUE',

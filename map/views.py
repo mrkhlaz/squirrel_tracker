@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from sightings.models import Squirrel
+from sightings.models import Sighting
 
 def index(request):
-    squirrels = Squirrel.objects.all()[0:100]
+    squirrels = Sighting.objects.all()[0:100]
     context = {
             'squirrels': squirrels,
             }
