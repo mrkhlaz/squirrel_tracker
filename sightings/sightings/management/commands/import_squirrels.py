@@ -28,6 +28,7 @@ class Command(BaseCommand):
                     obj.date  = timezone.datetime.strptime(item['Date'], '%m%d%Y').date(),
                     obj.age = item['Age'],
                     obj.primary_fur_color = item['Primary Fur Color'],
+                    obj.location = item['Location'],
                     obj.specific_location = item['Specific Location'],
                     obj.running = item['Running'] == 'TRUE',
                     obj.chasing = item['Chasing'] == 'TRUE',
