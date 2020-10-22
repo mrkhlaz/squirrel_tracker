@@ -24,7 +24,7 @@ class Command(BaseCommand):
                     obj.longitude = float(item['X']),
                     obj.latitude = float(item['Y']),
                     obj.unique_squirrel_id = item['Unique Squirrel ID'],
-                    obj.shift = item['Shift'].lower(),
+                    obj.shift = item['Shift'],
                     obj.date  = timezone.datetime.strptime(item['Date'], '%m%d%Y').date(),
                     obj.age = item['Age'],
                     obj.primary_fur_color = item['Primary Fur Color'],
