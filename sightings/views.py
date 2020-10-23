@@ -12,7 +12,7 @@ def all_sightings(request):
     return render(request, 'sightings/all_sightings.html', context)
 
 #def detail(request, squirrel_id):
-    #sighting = get_object_or_404(___, pk=squirrel_id)
+    #sighting = get_object_or_404(___, pk=squirrel_id) #Add index for data
     #context = {
         #'sighting': sighting,
     #}
