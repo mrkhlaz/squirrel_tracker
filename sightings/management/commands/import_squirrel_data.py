@@ -25,7 +25,7 @@ class Command(BaseCommand):
                     obj.latitude = float(item['Y']),
                     obj.unique_squirrel_id = item['Unique Squirrel ID'],
                     obj.shift = item['Shift'],
-                    obj.date  = timezone.datetime.strptime(item['Date'], '%m%d%Y').date(),
+                    obj.date  = timezone.datetime.strptime(str(item['Date']), '%m%d%Y').date(),
                     obj.age = item['Age'],
                     obj.primary_fur_color = item['Primary Fur Color'],
                     obj.location = item['Location'],
@@ -43,7 +43,6 @@ class Command(BaseCommand):
                     obj.tail_twitches = item['Tail twitches'] == 'TRUE',
                     obj.approaches = item['Approaches'] == 'TRUE',
                     obj.indifferent = item['Indifferent'] == 'TRUE',
-                    obj.runs_from = item['Runs From'] == 'TRUE',
-                    
+                    obj.runs_from = item['Runs from'] == 'TRUE',
                     obj.save()
                     noduplicates.append(item['Unique Squirrel ID'])
