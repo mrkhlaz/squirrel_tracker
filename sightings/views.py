@@ -13,6 +13,7 @@ def all_sightings(request):
             }
     return render(request, 'sightings/all_sightings.html', context)
 
+<<<<<<< HEAD
 def add_sighting(request):
     if request.method == 'POST':
 	form = SightingForm(request.POST)
@@ -42,3 +43,33 @@ def update_sighting(request, squirrel_id):
             }
 
     return render(request, 'sightings/update_sighting.html', context)
+
+from collections import Counter
+def stats(request):
+    squirrels = Sighting.objects.all()
+    zones = []
+    for sighting in squirrels:
+        zones += sighting.hectacre
+    zones = Counter(zones)
+    mode = zones.most_common(1)
+    html = "<html><body>The most common zone for sightings is %s!</body></html>" % mode
+    return HttpResponse(html)
+=======
+#def detail(request, squirrel_id):
+    #sighting = get_object_or_404(___, pk=squirrel_id) #Add index for data
+    #context = {
+        #'sighting': sighting,
+    #}
+    #return render(request, 'sightings/detail.html', context)
+
+from collections import Counter
+def stats(request):
+    squirrels = Sighting.objects.all()
+    zones = []
+    for sighting in squirrels:
+        zones += sighting.hectacre
+    zones = Counter(zones)
+    mode = zones.most_common(1)
+    html = "<html><body>The most common zone for sightings is %s!</body></html>" % mode
+    return HttpResponse(html)
+>>>>>>> 1d566e5c2554d0c618c7ab8b4e2ea07658faf9af
