@@ -17,3 +17,14 @@ def all_sightings(request):
         #'sighting': sighting,
     #}
     #return render(request, 'sightings/detail.html', context)
+
+from collections import Counter
+def stats(request):
+    squirrels = Sighting.objects.all()
+    zones = []
+    for sighting in squirrels:
+        zones += sighting.hectacre
+    zones = Counter(zones)
+    mode = zones.most_common(1)
+    html = "<html><body>The most common zone for sightings is %s!</body></html>" % mode
+    return HttpResponse(html)
